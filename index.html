@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uprint Email Templates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --orange:#FF6B00; --dark:#1a1a1a; --bg:#FFF4EB; --grey:#6E6862; --line:#F0E2D6; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:Inter, system-ui, sans-serif; background:var(--bg); color:var(--dark); min-height:100vh; }
+  .wrap { max-width:1180px; margin:0 auto; padding:32px 16px 40px; display:grid; grid-template-columns:340px 1fr; gap:40px; align-items:start; }
+  .eyebrow { color:var(--orange); font-weight:700; font-size:13px; letter-spacing:.06em; }
+  h1 { margin:6px 0 24px; font-size:26px; font-weight:800; }
+  .tag { display:inline-block; padding:6px 14px; border-radius:99px; color:#fff; font-size:12px; font-weight:700; letter-spacing:.04em; }
+  .tag.b2b { background:var(--orange); } .tag.user { background:var(--dark); }
+  .title { font-size:34px; font-weight:800; line-height:1.15; margin:16px 0 10px; }
+  .desc { color:var(--grey); font-size:17px; line-height:1.55; margin:0 0 24px; }
+  .controls { display:flex; gap:10px; align-items:center; margin-bottom:18px; }
+  button { font:inherit; cursor:pointer; border:0; border-radius:12px; }
+  .nav { width:46px; height:46px; background:#fff; color:var(--dark); font-size:20px; box-shadow:0 2px 8px rgba(120,60,20,.12); }
+  .nav:hover { background:var(--dark); color:#fff; }
+  .play { padding:0 16px; height:46px; background:var(--dark); color:#fff; font-weight:600; font-size:14px; }
+  .count { margin-left:6px; color:var(--grey); font-weight:500; font-size:14px; }
+  .dots { display:flex; gap:8px; margin-bottom:22px; }
+  .dot { width:10px; height:10px; padding:0; border-radius:99px; background:#E6CDB9; transition:width .25s, background .25s; }
+  .dot.on { width:26px; background:var(--orange); }
+  .links a { color:var(--dark); font-weight:600; font-size:14px; margin-right:16px; }
+  .stage { overflow:hidden; border-radius:18px; background:#fff; box-shadow:0 18px 50px rgba(120,60,20,.18); }
+  .inbox { display:flex; align-items:center; gap:12px; padding:12px 16px; border-bottom:1px solid var(--line); }
+  .avatar { width:34px; height:34px; border-radius:50%; background:var(--orange); color:#fff; display:grid; place-items:center; font-weight:800; }
+  .from { font-weight:700; font-size:14px; } .subject { color:var(--grey); font-size:13px; }
+  .track { display:flex; transition:transform .55s cubic-bezier(.65,0,.35,1); }
+  .slide { flex:0 0 100%; height:calc(100vh - 150px); min-height:520px; }
+  .slide iframe { width:100%; height:100%; border:0; display:block; background:var(--bg); }
+  @media (max-width:860px) {
+    .wrap { grid-template-columns:1fr; gap:20px; padding-top:20px; }
+    .title { font-size:26px; } .slide { height:75vh; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <aside>
+    <div class="eyebrow">HTML EMAIL TEMPLATES</div>
+    <h1>Uprint</h1>
+    <span id="tag" class="tag b2b"></span>
+    <div id="title" class="title"></div>
+    <p id="desc" class="desc"></p>
+    <div class="controls">
+      <button class="nav" id="prev" aria-label="Previous template">←</button>
+      <button class="nav" id="next" aria-label="Next template">→</button>
+      <button class="play" id="play">❚❚ Pause</button>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="dots" id="dots"></div>
+    <div class="links">
+      <a id="code" href="#" target="_blank" rel="noopener">View code ↗</a>
+      <a href="https://github.com/MSSohan/HTML-email-template" target="_blank" rel="noopener">Repository ↗</a>
+    </div>
+  </aside>
+
+  <main class="stage">
+    <div class="inbox">
+      <div class="avatar">U</div>
+      <div><div class="from">Team Uprint</div><div class="subject" id="subject"></div></div>
+    </div>
+    <div class="track" id="track"></div>
+  </main>
+</div>
+
+<script>
+  const templates = [
+    { file:"email_template_for_EDU.html", cat:"B2B · UNIVERSITY", b2b:true, title:"Campus Introduction", desc:"Pitch to a university: how Uprint works, student benefits, demo video and a pilot offer.", subject:"Introducing Uprint - Smart Campus Printing" },
+    { file:"email_temp_for_Premier.html", cat:"B2B · UNIVERSITY", b2b:true, title:"University Proposal", desc:"Formal proposal with two pricing plans, a 1-month free trial, training and support.", subject:"Uprint Proposal - Premier University" },
+    { file:"email_temp_for_IT_Officers.html", cat:"B2B · UNIVERSITY", b2b:true, title:"IT Officers", desc:"Technical angle: works with existing printers, centralised management and security.", subject:"Uprint - A Campus Cloud Printing Solution" },
+    { file:"email_temp_for_user_new_features.html", cat:"USER CAMPAIGN", b2b:false, title:"What's New", desc:"Feature launch: low-balance alerts, QR print, default printer and WhatsApp support.", subject:"New Features for Faster & Easier Printing" },
+    { file:"email_html_topsheet_post.html", cat:"USER CAMPAIGN", b2b:false, title:"Find a Kiosk", desc:"Promotes the live kiosk map, with unsubscribe merge tags.", subject:"Find a Kiosk Near You" },
+    { file:"email_html_survey.html", cat:"USER CAMPAIGN", b2b:false, title:"Survey Reward", desc:"Rewards users with 100 Tk print credit for taking a survey.", subject:"Your 100 Tk print credit from Uprint" },
+    { file:"email_html_winner_card.html", cat:"USER CAMPAIGN", b2b:false, title:"Winner Card", desc:"Announces a survey winner and invites the next entry.", subject:"Your 100 Tk print credit from Uprint" }
+  ];
+  const $ = id => document.getElementById(id);
+  const track = $("track"), dots = $("dots");
+  let i = 0, playing = true, timer = null;
+
+  templates.forEach((t, k) => {
+    const s = document.createElement("div"); s.className = "slide";
+    const f = document.createElement("iframe"); f.title = t.title; f.loading = k === 0 ? "eager" : "lazy"; f.src = t.file;
+    s.appendChild(f); track.appendChild(s);
+    const d = document.createElement("button"); d.className = "dot"; d.setAttribute("aria-label", "Show " + t.title);
+    d.onclick = () => { go(k); restart(); }; dots.appendChild(d);
+  });
+
+  function go(k) {
+    i = (k + templates.length) % templates.length;
+    const t = templates[i];
+    track.style.transform = `translateX(-${i * 100}%)`;
+    $("tag").textContent = t.cat; $("tag").className = "tag " + (t.b2b ? "b2b" : "user");
+    $("title").textContent = t.title; $("desc").textContent = t.desc; $("subject").textContent = t.subject;
+    $("count").textContent = `${String(i + 1).padStart(2, "0")} / ${String(templates.length).padStart(2, "0")}`;
+    $("code").href = "https://github.com/MSSohan/HTML-email-template/blob/main/" + t.file;
+    [...dots.children].forEach((d, n) => d.classList.toggle("on", n === i));
+  }
+  function restart() { clearInterval(timer); if (playing) timer = setInterval(() => go(i + 1), 6000); }
+  $("prev").onclick = () => { go(i - 1); restart(); };
+  $("next").onclick = () => { go(i + 1); restart(); };
+  $("play").onclick = () => { playing = !playing; $("play").textContent = playing ? "❚❚ Pause" : "▶ Play"; restart(); };
+  document.addEventListener("keydown", e => { if (e.key === "ArrowRight") $("next").click(); if (e.key === "ArrowLeft") $("prev").click(); });
+  go(0); restart();
+</script>
+</body>
+</html>
