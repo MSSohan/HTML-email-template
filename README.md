@@ -142,11 +142,11 @@
 <br/>
 
 Designed and coded by me for Uprint's university outreach and user communication: copy, layout and cross-client testing.
-See the platform: <a href="https://github.com/MSSohan/Uprint">Uprint</a> · <a href="https://uprintbd.com">uprintbd.com</a>
+See the platform: <a href="https://uprintbd.com">Uprint</a>
 
 </details>
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=rect&color=0:1a1a1a,100:FF6B00&height=4" width="100%" alt=""/>
-  <br/><sub>More of my work at <a href="https://github.com/MSSohan">github.com/MSSohan</a></sub>
+  <br/><sub>More of my work at <a href="https://github.com/MSSohan">MSSohan</a></sub>
 </p>
