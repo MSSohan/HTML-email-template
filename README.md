@@ -35,7 +35,7 @@
     <td align="center" width="290" valign="top">
       <h1>🎓</h1>
       <b>Campus Introduction</b><br/>
-      <sub>Pitch to a university: how Uprint works, student benefits, demo video and a pilot proposal</sub><br/><br/>
+      <sub>Pitch to a university: how Uprint works, student benefits, demo video and a proposal</sub><br/><br/>
       <a href="https://htmlpreview.github.io/?https://github.com/MSSohan/HTML-email-template/blob/main/email_template_for_EDU.html"><img src="https://img.shields.io/badge/▶_Preview-FF6B00?style=flat-square"/></a>
       <a href="email_template_for_EDU.html"><img src="https://img.shields.io/badge/</>_Code-1a1a1a?style=flat-square"/></a>
     </td>
@@ -63,7 +63,7 @@
     <td align="center" width="220" valign="top">
       <h1>✨</h1>
       <b>What's New</b><br/>
-      <sub>Feature launch: low-balance alerts, QR print, default printer, WhatsApp support</sub><br/><br/>
+      <sub>Feature launch: low-balance alerts, QR & default printer, WhatsApp support</sub><br/><br/>
       <a href="https://htmlpreview.github.io/?https://github.com/MSSohan/HTML-email-template/blob/main/email_temp_for_user_new_features.html"><img src="https://img.shields.io/badge/▶_Preview-FF6B00?style=flat-square"/></a>
       <a href="email_temp_for_user_new_features.html"><img src="https://img.shields.io/badge/</>_Code-1a1a1a?style=flat-square"/></a>
     </td>
